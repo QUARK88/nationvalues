@@ -1,0 +1,288 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href='style.css' rel='stylesheet' type='text/css'>
+<title>NationValues Results</title>
+<link rel="icon" type="x-icon" href="icon.png">
+<link rel="shortcut icon" type="x-icon" href="icon.png">
+<meta charset="utf-8">
+<script>
+  version = "NationValues" //Remember to update this before making changes to the test itself!
+</script>
+</head>
+<script type="application/javascript"
+        src="ideologies.js">
+</script>
+
+<body>
+<h1>NationValues</h1>
+<hr>
+
+<h1>Results</h1>
+
+<h2>Identity Axis : <span class="weight-300" id="biden"></span></h2>
+<div class="axis">
+    <img id="img-nati" src="value_images/nationalism.png" height="128pt"/>
+    <div class="bar nati" id="bar-nati"><div class="text-wrapper" id="nati"></div></div>
+    <div class="bar glob" id="bar-glob"><div class="text-wrapper" id="glob"></div></div>
+    <img id="img-glob" src="value_images/globalism.png" height="128pt"/>
+</div>
+<h2>Intervention Axis : <span class="weight-300" id="binte"></span></h2>
+<div class="axis">
+    <img id="img-inte" src="value_images/interventionism.png" height="128pt"/>
+    <div class="bar inte" id="bar-inte"><div class="text-wrapper" id="inte"></div></div>
+    <div class="bar isol" id="bar-isol"><div class="text-wrapper" id="isol"></div></div>
+    <img id="img-isol" src="value_images/isolationism.png" height="128pt"/>
+</div>
+<h2>Structure Axis : <span class="weight-300" id="bstru"></span></h2>
+<div class="axis">
+    <img id="img-unit" src="value_images/unitary.png" height="128pt"/>
+    <div class="bar unit" id="bar-unit"><div class="text-wrapper" id="unit"></div></div>
+    <div class="bar fede" id="bar-fede"><div class="text-wrapper" id="fede"></div></div>
+    <img id="img-fede" src="value_images/federal.png" height="128pt"/>
+</div>
+<h2>Implementation Axis : <span class="weight-300" id="bimpl"></span></h2>
+<div class="axis">
+    <img id="img-revo" src="value_images/revolution.png" height="128pt"/>
+    <div class="bar revo" id="bar-revo"><div class="text-wrapper" id="revo"></div></div>
+    <div class="bar refo" id="bar-refo"><div class="text-wrapper" id="refo"></div></div>
+    <img id="img-refo" src="value_images/reform.png" height="128pt"/>
+</div>
+<h2>Applicability Axis : <span class="weight-300" id="bappl"></span></h2>
+<div class="axis">
+    <img id="img-part" src="value_images/particular.png" height="128pt"/>
+    <div class="bar part" id="bar-part"><div class="text-wrapper" id="part"></div></div>
+    <div class="bar univ" id="bar-univ"><div class="text-wrapper" id="univ"></div></div>
+    <img id="img-univ" src="value_images/universal.png" height="128pt"/>
+</div>
+<h2>Culture Axis : <span class="weight-300" id="bcult"></span></h2>
+<div class="axis">
+    <img id="img-mult" src="value_images/multicultural.png" height="128pt"/>
+    <div class="bar mult" id="bar-mult"><div class="text-wrapper" id="mult"></div></div>
+    <div class="bar intg" id="bar-intg"><div class="text-wrapper" id="intg"></div></div>
+    <img id="img-intg" src="value_images/integration.png" height="128pt"/>
+</div>
+<h2>Migration Axis : <span class="weight-300" id="bmigr"></span></h2>
+<div class="axis">
+    <img id="img-migr" src="value_images/migration.png" height="128pt"/>
+    <div class="bar migr" id="bar-migr"><div class="text-wrapper" id="migr"></div></div>
+    <div class="bar bord" id="bar-bord"><div class="text-wrapper" id="bord"></div></div>
+    <img id="img-bord" src="value_images/borders.png" height="128pt"/>
+</div>
+<h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
+<p>There's no closest match for now, so cope with the axes lmao</p>
+<p>You think your results should be integrated into the closest matches ? Send them to me on Discord ( Quark#0741 ) or on Gmail ( beaulieu.renaud@gmail.com ) . </p>
+<hr/>
+<img src="" id="banner">
+<button class="button" onclick="location.href='index.html';" style="background-color: #00b5ff;">Back</button> <br>
+<!-- Website visit inteistics - no personal information is collected! -->
+<script type="text/javascript">
+var sc_project=11325211;
+var sc_invisible=1;
+var sc_security="fd9f0659";
+var scJsHost = (("https:" == document.location.partocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"intecounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="intecounter"><a title="web intes"
+href="http://intecounter.com/" target="_blank"><img
+class="intecounter"
+src="//c.intecounter.com/11325211/0/fd9f0659/1/" alt="web
+intes"></a></div></noscript>
+<script>
+    function getQueryVariable(variable)
+    {
+           var query = window.location.search.substring(1)
+           var vars = query.split("&")
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=")
+                   if(pair[0] == variable) {return pair[1]}
+           }
+           return(NaN);
+    }
+
+    function setBarValue(name, value) {
+        innerel = document.getElementById(name)
+        outerel = document.getElementById("bar-" + name)
+        outerel.style.width = (value + "%")
+        innerel.innerHTML = (value + "%")
+        if (innerel.offsetWidth + 20 > outerel.offsetWidth) {
+            innerel.style.visibility = "hidden"
+        }
+    }
+
+    bidenArray = ["Chauvinism","Nationalism","Patriotism","Neutral","Internationalism","Globalism","United Globalism"]
+    binteArray = ["World Domination","Imperialism","Interventionism","Neutral","Non Interventionism","Isolationism","Pacifism"]
+    bstruArray = ["","","","Neutral","","",""]
+    bimplArray = ["","","","Neutral","","",""]
+    bapplArray = ["","","","Neutral","","",""]
+    bcultArray = ["","","","Neutral","","",""]
+    bmigrArray = ["","","","Neutral","","",""]
+
+    function setLabel(val,ary) {
+        if (val > 100) { return "Off Compass" } else
+        if (val > 85) { return ary[0] } else
+        if (val > 70) { return ary[1] } else
+        if (val > 55) { return ary[2] } else
+        if (val >= 45) { return ary[3] } else
+        if (val >= 30) { return ary[4] } else
+        if (val >= 15) { return ary[5] } else
+        if (val >= 0) { return ary[6] } else
+        	{return "Off Compass"}
+    }
+
+    nati = getQueryVariable("nati")
+    inte = getQueryVariable("inte")
+    unit = getQueryVariable("unit")
+    revo = getQueryVariable("revo")
+    part = getQueryVariable("part")
+    mult = getQueryVariable("mult")
+    migr = getQueryVariable("migr")
+    glob = (100 - nati).toFixed(1)
+    isol = (100 - inte).toFixed(1)
+    fede = (100 - unit).toFixed(1)
+    refo = (100 - revo).toFixed(1)
+    univ = (100 - part).toFixed(1)
+    intg = (100 - mult).toFixed(1)
+    bord = (100 - migr).toFixed(1)
+
+    setBarValue("nati", nati)
+    setBarValue("glob", glob)
+    setBarValue("inte", inte)
+    setBarValue("isol", isol)
+    setBarValue("unit", unit)
+    setBarValue("fede", fede)
+    setBarValue("revo", revo)
+    setBarValue("refo", refo)
+    setBarValue("part", part)
+    setBarValue("univ", univ)
+    setBarValue("mult", mult)
+    setBarValue("intg", intg)
+    setBarValue("migr", migr)
+    setBarValue("bord", bord)
+
+    document.getElementById("biden").innerHTML = setLabel(nati, bidenArray)
+    document.getElementById("binte").innerHTML = setLabel(inte, binteArray)
+    document.getElementById("bstru").innerHTML = setLabel(unit, bstruArray)
+    document.getElementById("bimpl").innerHTML = setLabel(revo, bimplArray)
+    document.getElementById("bappl").innerHTML = setLabel(part, bapplArray)
+    document.getElementById("bcult").innerHTML = setLabel(mult, bcultArray)
+    document.getElementById("bmigr").innerHTML = setLabel(migr, bmigrArray)
+
+    ideology = ""
+    ideodist = Infinity
+    for (var i = 0; i < ideologies.length; i++) {
+        dist = 0
+        dist += Math.abs(ideologies[i].intes.biden - nati)*1
+        dist += Math.abs(ideologies[i].intes.binte - inte)*1
+        dist += Math.abs(ideologies[i].intes.bstru - unit)*1
+        dist += Math.abs(ideologies[i].intes.bimpl - revo)*1
+        dist += Math.abs(ideologies[i].intes.bappl - part)*1
+        dist += Math.abs(ideologies[i].intes.bcult - mult)*1
+        dist += Math.abs(ideologies[i].intes.bmigr - migr)*1
+        if (dist < ideodist) {
+            ideology = ideologies[i].name
+            ideodist = dist
+        }
+    }
+    document.getElementById("ideology-label").innerHTML = ideology
+
+    function createImage(src, x, y, w, h) {
+        img = new Image ()
+        img.src = src
+        img.onLoad = function() {
+            ctx.drawImage(img, x, y, w, h)
+        }
+    }
+
+    window.onload = function() {
+        var c = document.createElement("canvas")
+        var ctx = c.getContext("2d")
+        c.width = 800;
+        c.height = 1540;
+        ctx.fillStyle = "#e0e0e0"
+        ctx.fillRect(0,0,800,1540);
+
+        img = document.getElementById("img-nati")
+        ctx.drawImage(img, 20, 170, 100, 100);
+        img = document.getElementById("img-glob")
+        ctx.drawImage(img, 680, 170, 100, 100)
+        img = document.getElementById("img-inte")
+        ctx.drawImage(img, 20, 290, 100, 100)
+        img = document.getElementById("img-isol")
+        ctx.drawImage(img, 680, 290, 100, 100)
+        img = document.getElementById("img-unit")
+        ctx.drawImage(img, 20, 410, 100, 100)
+        img = document.getElementById("img-fede")
+        ctx.drawImage(img, 680, 410, 100, 100)
+        img = document.getElementById("img-part")
+        ctx.drawImage(img, 20, 530, 100, 100)
+        img = document.getElementById("img-refo")
+        ctx.drawImage(img, 680, 530, 100, 100)
+        img = document.getElementById("img-mult")
+        ctx.drawImage(img, 20, 650, 100, 100);
+        img = document.getElementById("img-intg")
+        ctx.drawImage(img, 680, 650, 100, 100)
+        img = document.getElementById("img-migr")
+        ctx.drawImage(img, 20, 770, 100, 100)
+        img = document.getElementById("img-bord")
+        ctx.drawImage(img, 680, 770, 100, 100)
+        img = document.getElementById("img-v81")
+        ctx.drawImage(img, 20, 890, 100, 100)
+        img = document.getElementById("img-v82")
+        ctx.drawImage(img, 680, 890, 100, 100)
+
+        ctx.fillStyle="#000000"
+        ctx.fillRect(120, 180, 560, 80)
+        ctx.fillRect(120, 300, 560, 80)
+        ctx.fillRect(120, 420, 560, 80)
+        ctx.fillRect(120, 540, 560, 80)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(120, 184, 5.6*nati-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(682-5.6*glob, 184, 5.6*glob-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(120, 304, 5.6*inte-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(682-5.6*isol, 304, 5.6*isol-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(120, 424, 5.6*unit-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(682-5.6*fede, 424, 5.6*fede-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(120, 544, 5.6*part-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.fillRect(682-5.6*refo, 544, 5.6*refo-2, 72)
+        ctx.fillStyle="#000000"
+        ctx.font="700 60px Montserrat"
+        ctx.textAlign="left"
+        ctx.fillText("CapValues", 20, 90)
+        ctx.font="40px Montserrat"
+        ctx.fillText(ideology, 20, 140)
+
+        ctx.textAlign="left"
+        if (nati > 30) {ctx.fillText(nati + "%", 130, 237.5)}
+        if (inte > 30) {ctx.fillText(inte + "%", 130, 357.5)}
+        if (unit > 30) {ctx.fillText(unit + "%", 130, 477.5)}
+        if (part > 30) {ctx.fillText(part + "%", 130, 597.5)}
+        ctx.textAlign="right"
+        if (glob > 30) {ctx.fillText(glob + "%", 670, 237.5)}
+        if (isol > 30) {ctx.fillText(isol + "%", 670, 357.5)}
+        if (fede > 30) {ctx.fillText(fede + "%", 670, 477.5)}
+        if (refo > 30) {ctx.fillText(refo + "%", 670, 597.5)}
+
+        ctx.textAlign="center"
+        ctx.fillText(" Axis: " + document.getElementById("biden").innerHTML, 400, 175)
+        ctx.fillText(" Axis: " + document.getElementById("binte").innerHTML, 400, 295)
+        ctx.fillText(" Axis: " + document.getElementById("bstru").innerHTML, 400, 415)
+        ctx.fillText(" Axis: " + document.getElementById("bimpl").innerHTML, 400, 535)
+        ctx.fillText(" Axis: " + document.getElementById("bappl").innerHTML, 400, 655)
+        ctx.fillText(" Axis: " + document.getElementById("bcult").innerHTML, 400, 775)
+        ctx.fillText(" Axis: " + document.getElementById("bappl").innerHTML, 400, 895)
+        ctx.fillText(" Axis: " + document.getElementById("b8").innerHTML, 400, 1015)
+
+        document.getElementById("banner").src = c.toDataURL();
+    }
+    </script>
+</body>
