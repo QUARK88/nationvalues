@@ -1,7 +1,7 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
-<title>SocialValues Quiz</title>
+<title>NationValues Quiz</title>
 <link rel="icon" type="x-icon" href="icon.png">
 <link rel="shortcut icon" type="x-icon" href="icon.png">
 <meta charset="utf-8">
@@ -17,7 +17,7 @@
 <script type="application/javascript"
         src="questions.js">
 </script>
-<h1>SocialValues</h1>
+<h1>NationValues</h1>
 <hr>
 <h2 style="text-align:center;" id="question-number">It should appear</h2>
 <p class="question" id="question-text"></p>
@@ -48,21 +48,21 @@ stats"></a></div></noscript>
 
 <!-- JavaScript for the test itself -->
 <script>
-    var max_bsoci, max_bscie, max_breli, max_bcoll, max_bmino, max_bvale, max_binst; // Max possible scores
-    max_bsoci = max_bscie = max_breli = max_bcoll = max_bmino = max_bvale = max_binst = 0;
-    var bsoci, bscie, breli, bcoll, bmino, bvale, binst; // User's scores
-    bsoci = bscie = breli = bcoll = bmino = bvale = binst = 0;
+    var max_biden, max_binte, max_bstru, max_bimpl, max_bappl, max_bcult, max_bmigr; // Max possible scores
+    max_biden = max_binte = max_bstru = max_bimpl = max_bappl = max_bcult = max_bmigr = 0;
+    var biden, binte, bstru, bimpl, bappl, bcult, bmigr; // User's scores
+    biden = binte = bstru = bimpl = bappl = bcult = bmigr = 0;
     var qn = 0; // Question number
     var prev_answer = null;
     init_question();
     for (var i = 0; i < questions.length; i++) {
-        max_bsoci += Math.abs(questions[i].effect.bsoci)
-        max_bscie += Math.abs(questions[i].effect.bscie)
-        max_breli += Math.abs(questions[i].effect.breli)
-        max_bcoll += Math.abs(questions[i].effect.bcoll)
-        max_bmino += Math.abs(questions[i].effect.bmino)
-        max_bvale += Math.abs(questions[i].effect.bvale)
-        max_binst += Math.abs(questions[i].effect.binst)
+        max_biden += Math.abs(questions[i].effect.biden)
+        max_binte += Math.abs(questions[i].effect.binte)
+        max_bstru += Math.abs(questions[i].effect.bstru)
+        max_bimpl += Math.abs(questions[i].effect.bimpl)
+        max_bappl += Math.abs(questions[i].effect.bappl)
+        max_bcult += Math.abs(questions[i].effect.bcult)
+        max_bmigr += Math.abs(questions[i].effect.bmigr)
     }
     function init_question() {
         document.getElementById("question-text").innerHTML = questions[qn].question;
@@ -78,13 +78,13 @@ stats"></a></div></noscript>
     }
 
     function next_question(mult) {
-        bsoci += mult*questions[qn].effect.bsoci
-        bscie += mult*questions[qn].effect.bscie
-        breli += mult*questions[qn].effect.breli
-        bcoll += mult*questions[qn].effect.bcoll
-        bmino += mult*questions[qn].effect.bmino
-        bvale += mult*questions[qn].effect.bvale
-        binst += mult*questions[qn].effect.binst
+        biden += mult*questions[qn].effect.biden
+        binte += mult*questions[qn].effect.binte
+        bstru += mult*questions[qn].effect.bstru
+        bimpl += mult*questions[qn].effect.bimpl
+        bappl += mult*questions[qn].effect.bappl
+        bcult += mult*questions[qn].effect.bcult
+        bmigr += mult*questions[qn].effect.bmigr
         qn++;
         prev_answer = mult;
         if (qn < questions.length) {
@@ -98,13 +98,13 @@ stats"></a></div></noscript>
             return;
         }
         qn--;
-        bsoci -= prev_answer * questions[qn].effect.bsoci;
-        bscie -= prev_answer * questions[qn].effect.bscie;
-        breli -= prev_answer * questions[qn].effect.breli;
-        bcoll -= prev_answer * questions[qn].effect.bcoll;
-        bmino -= prev_answer * questions[qn].effect.bmino;
-        bvale -= prev_answer * questions[qn].effect.bvale;
-        binst -= prev_answer * questions[qn].effect.binst;
+        biden -= prev_answer * questions[qn].effect.biden;
+        binte -= prev_answer * questions[qn].effect.binte;
+        bstru -= prev_answer * questions[qn].effect.bstru;
+        bimpl -= prev_answer * questions[qn].effect.bimpl;
+        bappl -= prev_answer * questions[qn].effect.bappl;
+        bcult -= prev_answer * questions[qn].effect.bcult;
+        bmigr -= prev_answer * questions[qn].effect.bmigr;
         prev_answer = null;
         init_question();
 
@@ -114,13 +114,13 @@ stats"></a></div></noscript>
     }
     function results() {
         location.href = `results.html`
-            + `?prog=${calc_score(bsoci,max_bsoci)}`
-            + `&inno=${calc_score(bscie,max_bscie)}`
-            + `&athe=${calc_score(breli,max_breli)}`
-            + `&indi=${calc_score(bcoll,max_bcoll)}`
-            + `&incl=${calc_score(bmino,max_bmino)}`
-            + `&hedo=${calc_score(bvale,max_bvale)}`
-            + `&cons=${calc_score(binst,max_binst)}`
+            + `?nati=${calc_score(biden,max_biden)}`
+            + `&inte=${calc_score(binte,max_binte)}`
+            + `&unit=${calc_score(bstru,max_bstru)}`
+            + `&revo=${calc_score(bimpl,max_bimpl)}`
+            + `&part=${calc_score(bappl,max_bappl)}`
+            + `&mult=${calc_score(bcult,max_bcult)}`
+            + `&migr=${calc_score(bmigr,max_bmigr)}`
     }
 </script>
 </body>
