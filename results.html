@@ -174,13 +174,13 @@ intes"></a></div></noscript>
     ideodist = Infinity
     for (var i = 0; i < ideologies.length; i++) {
         dist = 0
-        dist += Math.abs(ideologies[i].intes.biden - nati)*1
-        dist += Math.abs(ideologies[i].intes.binte - inte)*1
-        dist += Math.abs(ideologies[i].intes.bstru - unit)*1
-        dist += Math.abs(ideologies[i].intes.bimpl - revo)*1
-        dist += Math.abs(ideologies[i].intes.bappl - part)*1
-        dist += Math.abs(ideologies[i].intes.bcult - mult)*1
-        dist += Math.abs(ideologies[i].intes.bmigr - migr)*1
+        dist += Math.abs(ideologies[i].stats.biden - nati)*1
+        dist += Math.abs(ideologies[i].stats.binte - inte)*1
+        dist += Math.abs(ideologies[i].stats.bstru - unit)*1
+        dist += Math.abs(ideologies[i].stats.bimpl - revo)*1
+        dist += Math.abs(ideologies[i].stats.bappl - part)*1
+        dist += Math.abs(ideologies[i].stats.bcult - mult)*1
+        dist += Math.abs(ideologies[i].stats.bmigr - migr)*1
         if (dist < ideodist) {
             ideology = ideologies[i].name
             ideodist = dist
@@ -200,9 +200,9 @@ intes"></a></div></noscript>
         var c = document.createElement("canvas")
         var ctx = c.getContext("2d")
         c.width = 800;
-        c.height = 1540;
+        c.height = 1000;
         ctx.fillStyle = "#e0e0e0"
-        ctx.fillRect(0,0,800,1540);
+        ctx.fillRect(0,0,800,1000);
 
         img = document.getElementById("img-nati")
         ctx.drawImage(img, 20, 170, 100, 100);
@@ -216,21 +216,21 @@ intes"></a></div></noscript>
         ctx.drawImage(img, 20, 410, 100, 100)
         img = document.getElementById("img-fede")
         ctx.drawImage(img, 680, 410, 100, 100)
-        img = document.getElementById("img-part")
+        img = document.getElementById("img-revo")
         ctx.drawImage(img, 20, 530, 100, 100)
         img = document.getElementById("img-refo")
         ctx.drawImage(img, 680, 530, 100, 100)
-        img = document.getElementById("img-mult")
-        ctx.drawImage(img, 20, 650, 100, 100);
-        img = document.getElementById("img-intg")
+        img = document.getElementById("img-part")
+        ctx.drawImage(img, 20, 650, 100, 100)
+        img = document.getElementById("img-univ")
         ctx.drawImage(img, 680, 650, 100, 100)
-        img = document.getElementById("img-migr")
-        ctx.drawImage(img, 20, 770, 100, 100)
-        img = document.getElementById("img-bord")
+        img = document.getElementById("img-mult")
+        ctx.drawImage(img, 20, 770, 100, 100);
+        img = document.getElementById("img-intg")
         ctx.drawImage(img, 680, 770, 100, 100)
-        img = document.getElementById("img-v81")
+        img = document.getElementById("img-migr")
         ctx.drawImage(img, 20, 890, 100, 100)
-        img = document.getElementById("img-v82")
+        img = document.getElementById("img-bord")
         ctx.drawImage(img, 680, 890, 100, 100)
 
         ctx.fillStyle="#000000"
@@ -238,49 +238,69 @@ intes"></a></div></noscript>
         ctx.fillRect(120, 300, 560, 80)
         ctx.fillRect(120, 420, 560, 80)
         ctx.fillRect(120, 540, 560, 80)
-        ctx.fillStyle="#000000"
+        ctx.fillRect(120, 660, 560, 80)
+        ctx.fillRect(120, 780, 560, 80)
+        ctx.fillRect(120, 900, 560, 80)
+        ctx.fillStyle="#e07500"
         ctx.fillRect(120, 184, 5.6*nati-2, 72)
-        ctx.fillStyle="#000000"
+        ctx.fillStyle="#75e0e0"
         ctx.fillRect(682-5.6*glob, 184, 5.6*glob-2, 72)
-        ctx.fillStyle="#000000"
+        ctx.fillStyle="#ff5075"
         ctx.fillRect(120, 304, 5.6*inte-2, 72)
-        ctx.fillStyle="#000000"
+        ctx.fillStyle="#0075c0"
         ctx.fillRect(682-5.6*isol, 304, 5.6*isol-2, 72)
-        ctx.fillStyle="#000000"
+        ctx.fillStyle="#ff0000"
         ctx.fillRect(120, 424, 5.6*unit-2, 72)
-        ctx.fillStyle="#000000"
+        ctx.fillStyle="#ffff00"
         ctx.fillRect(682-5.6*fede, 424, 5.6*fede-2, 72)
-        ctx.fillStyle="#000000"
-        ctx.fillRect(120, 544, 5.6*part-2, 72)
-        ctx.fillStyle="#000000"
+        ctx.fillStyle="#a00000"
+        ctx.fillRect(120, 544, 5.6*revo-2, 72)
+        ctx.fillStyle="#50a050"
         ctx.fillRect(682-5.6*refo, 544, 5.6*refo-2, 72)
+        ctx.fillStyle="#e05000"
+        ctx.fillRect(120, 664, 5.6*part-2, 72)
+        ctx.fillStyle="#00ffc0"
+        ctx.fillRect(682-5.6*univ, 664, 5.6*univ-2, 72)
+        ctx.fillStyle="#ff75c0"
+        ctx.fillRect(120, 784, 5.6*mult-2, 72)
+        ctx.fillStyle="#7575e0"
+        ctx.fillRect(682-5.6*intg, 784, 5.6*intg-2, 72)
+        ctx.fillStyle="#c000a0"
+        ctx.fillRect(120, 904, 5.6*migr-2, 72)
+        ctx.fillStyle="#505075"
+        ctx.fillRect(682-5.6*bord, 904, 5.6*bord-2, 72)
         ctx.fillStyle="#000000"
         ctx.font="700 60px Montserrat"
         ctx.textAlign="left"
-        ctx.fillText("CapValues", 20, 90)
+        ctx.fillText("EconomyValues", 20, 90)
         ctx.font="40px Montserrat"
         ctx.fillText(ideology, 20, 140)
 
         ctx.textAlign="left"
-        if (nati > 30) {ctx.fillText(nati + "%", 130, 237.5)}
-        if (inte > 30) {ctx.fillText(inte + "%", 130, 357.5)}
-        if (unit > 30) {ctx.fillText(unit + "%", 130, 477.5)}
-        if (part > 30) {ctx.fillText(part + "%", 130, 597.5)}
+        if (nati > 30) {ctx.fillText(nati + "%", 130, 232.5)}
+        if (inte > 30) {ctx.fillText(inte + "%", 130, 352.5)}
+        if (unit > 30) {ctx.fillText(unit + "%", 130, 472.5)}
+        if (revo > 30) {ctx.fillText(revo + "%", 130, 592.5)}
+        if (part > 30) {ctx.fillText(part + "%", 130, 712.5)}
+        if (mult > 30) {ctx.fillText(mult + "%", 130, 832.5)}
+        if (migr > 30) {ctx.fillText(migr + "%", 130, 952.5)}
         ctx.textAlign="right"
-        if (glob > 30) {ctx.fillText(glob + "%", 670, 237.5)}
-        if (isol > 30) {ctx.fillText(isol + "%", 670, 357.5)}
-        if (fede > 30) {ctx.fillText(fede + "%", 670, 477.5)}
-        if (refo > 30) {ctx.fillText(refo + "%", 670, 597.5)}
+        if (glob > 30) {ctx.fillText(glob + "%", 670, 232.5)}
+        if (isol > 30) {ctx.fillText(isol + "%", 670, 352.5)}
+        if (fede > 30) {ctx.fillText(fede + "%", 670, 472.5)}
+        if (refo > 30) {ctx.fillText(refo + "%", 670, 592.5)}
+        if (univ > 30) {ctx.fillText(univ + "%", 670, 712.5)}
+        if (intg > 30) {ctx.fillText(intg + "%", 670, 832.5)}
+        if (bord > 30) {ctx.fillText(bord + "%", 670, 952.5)}
 
         ctx.textAlign="center"
-        ctx.fillText(" Axis: " + document.getElementById("biden").innerHTML, 400, 175)
-        ctx.fillText(" Axis: " + document.getElementById("binte").innerHTML, 400, 295)
-        ctx.fillText(" Axis: " + document.getElementById("bstru").innerHTML, 400, 415)
-        ctx.fillText(" Axis: " + document.getElementById("bimpl").innerHTML, 400, 535)
-        ctx.fillText(" Axis: " + document.getElementById("bappl").innerHTML, 400, 655)
-        ctx.fillText(" Axis: " + document.getElementById("bcult").innerHTML, 400, 775)
-        ctx.fillText(" Axis: " + document.getElementById("bappl").innerHTML, 400, 895)
-        ctx.fillText(" Axis: " + document.getElementById("b8").innerHTML, 400, 1015)
+        ctx.fillText("Identity Axis: " + document.getElementById("biden").innerHTML, 400, 175)
+        ctx.fillText("Intervention Axis: " + document.getElementById("binte").innerHTML, 400, 295)
+        ctx.fillText("Structure Axis: " + document.getElementById("bstru").innerHTML, 400, 415)
+        ctx.fillText("Implementation Axis: " + document.getElementById("bimpl").innerHTML, 400, 535)
+        ctx.fillText("Applicability Axis: " + document.getElementById("bappl").innerHTML, 400, 655)
+        ctx.fillText("Culture Axis: " + document.getElementById("bcult").innerHTML, 400, 775)
+        ctx.fillText("Migration Axis: " + document.getElementById("bmigr").innerHTML, 400, 895)
 
         document.getElementById("banner").src = c.toDataURL();
     }
